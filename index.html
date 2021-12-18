@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Pokemon API Team Builder</title>
+    <title>Pokemon API Team Randomizer</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,12 +31,11 @@
     <!-- heading -->
     <div id="home" class="container-fluid text-black pt-5 mt-5"> <!-- bg-light is background color & p-5 is padding -->
       <div class="container text-sm-center my-5 py-5">
-        <h1 class="display-2">Pokemon Team Builder</h1>
-        <p class="lead">Build Your Pokemon Team For Brilliant Diamond and Shining Pearl!</p>
+        <h1 class="display-2">Pokemon Team Randomizer</h1>
+        <p class="lead">Randomize Your Pokemon Team For Brilliant Diamond and Shining Pearl!</p>
 
         <div class="btn-group mt-4 mb-5" role="group" aria-label="Callout buttons">
-          <button type="button" class="btn btn-primary btn-lg">Monotype Team</button>
-          <button type="button" class="btn btn-light btn-lg">Random Team</button>
+          <button type="button" id="random" class="btn btn-primary btn-lg">Randomize Team</button>
         </div>
       </div>
     </div>
@@ -46,14 +45,14 @@
         <div class="container pt-4">
           <div class="row">
             <div class="col-lg order-lg-2">
-              <h3 class="mb-4">Random Team</h3>
-              <p>If you are looking for a team of diverse random pokemon to run through Pokemon Brilliant Diamond or Shining Pearl with, then click the "Random Team" button above to generate your new team.</p>
-              <p>Explore the Sinnoh region with randomized pokemon for a fresh, new experience!</p>
+              <h3 class="mb-4">How To Randomize A Team</h3>
+              <p>If you are looking for a team of diverse random Pokemon to run through Pokemon Brilliant Diamond or Shining Pearl with, then click the "Random Team" button above to generate your new team.</p>
+              <p>Explore the Sinnoh region with randomized Pokemon for a fresh, new experience!</p>
             </div>
             <div class="col-lg order-lg-1">
-              <h3 class="mb-4">Monotype Team</h3>
-              <p>Want to run through Brilliant Diamond or Shining Pearl like a gym leader? Click on the "Monotype Team" button above to generate a pokemon team where each pokemon is the same type for the faithful remake of Diamond and Pearl.</p>
-              <p>Experience the challenges and joys of running a monotype team in the Sinnoh region!</p>
+              <h3 class="mb-4">Why Run A Random Team?</h3>
+              <p>In every Pokemon game, there are the go-to Pokemon most players gravitate towards, and build their teams around. As a result, there are many Pokemon out there that are fun to journey with that are neglected.</p>
+              <p>Experience the challenges and joys of running a random team in the Sinnoh region!</p>
             </div>
             <div class="col-lg order-lg-3">
               <h3 class="mb-4">Other Helpful Resources</h3>
@@ -67,10 +66,10 @@
           </div>
     
           <!-- Team -->
-          <h1 id="team" class="display-4 text-center my-5 text-muted anchor">Team</h1>
+          <h1 id="team" class="display-4 text-center my-5 text-muted anchor">Randomized Team</h1>
           <div class="row">
             <div class="col-md-6 col-lg-4">
-              <div class="card mb-3">
+              <div id="cardOne" class="card mb-3">
                 <img class="card-img-top" src="./img/who.png" alt="Team Member 1">
                 <div class="card-body">
                   <h5 class="card-title">Team Member 1</h5>
@@ -80,7 +79,7 @@
             </div>
           
             <div class="col-md-6 col-lg-4">
-              <div class="card mb-3">
+              <div id="cardTwo" class="card mb-3">
                 <img class="card-img-top" src="./img/who.png" alt="Team Member 2">
                 <div class="card-body">
                   <h5 class="card-title">Team Member 2</h5>
@@ -90,7 +89,7 @@
             </div>
           
             <div class="col-md-6 col-lg-4">
-              <div class="card mb-3">
+              <div id="cardThree" class="card mb-3">
                 <img class="card-img-top" src="./img/who.png" alt="Team Member 3">
                 <div class="card-body">
                   <h4 class="card-title">Team Member 3</h4>
@@ -100,7 +99,7 @@
             </div>
           
             <div class="col-md-6 col-lg-4">
-              <div class="card mb-3">
+              <div id="cardFour" class="card">
                 <img class="card-img-top" src="./img/who.png" alt="Team Member 4">
                 <div class="card-body">
                   <h4 class="card-title">Team Member 4</h4>
@@ -110,7 +109,7 @@
             </div>
           
             <div class="col-md-6 col-lg-4">
-              <div class="card mb-3">
+              <div id="cardFive" class="card">
                 <img class="card-img-top" src="./img/who.png" alt="Team Member 5">
                 <div class="card-body">
                   <h4 class="card-title">Team Member 5</h4>
@@ -120,7 +119,7 @@
             </div>
           
             <div class="col-md-6 col-lg-4">
-              <div class="card mb-3">
+              <div id="cardSix" class="card">
                 <img class="card-img-top" src="./img/who.png" alt="Team Member 6">
                 <div class="card-body">
                   <h4 class="card-title">Team Member 6</h4>
@@ -131,7 +130,7 @@
           </div>
           
           <!-- Reroll button -->
-          <button type="button" class="btn btn-outline-info btn-lg d-block mx-auto my-5" data-toggle="modal" data-target="#register">Reroll Team</button>
+          <button type="button" id="reroll" class="btn btn-outline-info btn-lg d-block mx-auto my-5">Reroll Team</button>
     
           <!-- signup form -->
           <hr>
@@ -145,7 +144,7 @@
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Email">
                 <span class="input-group-btn">
-                  <button class="btn btn-primary" type="button">Sign up</button>
+                  <button id="signup" class="btn btn-primary" type="button" onClick="window.location.reload();">Sign up</button>
                 </span>
               </div>
             </div>
